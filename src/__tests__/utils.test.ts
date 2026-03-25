@@ -30,4 +30,9 @@ describe('average', () => {
   it('handles floats correctly', () => {
     expect(average([1.5, 2.5])).toBe(2);
   });
+
+  it('throws on empty array instead of returning NaN', () => {
+    // Regression for silent NaN: average([]) divided by zero, returning NaN
+    expect(() => average([])).toThrow('average requires at least one number');
+  });
 });
