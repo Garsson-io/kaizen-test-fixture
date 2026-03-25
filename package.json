@@ -1,0 +1,18 @@
+{
+  "name": "kaizen-test-fixture",
+  "version": "1.0.0",
+  "description": "Test fixture repo for kaizen E2E tests",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}
