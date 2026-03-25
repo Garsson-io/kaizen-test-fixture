@@ -14,7 +14,12 @@ describe('countMatching', () => {
   it('works with string predicates', () => {
     const words = ['hello', 'world', 'hi'];
     const result = countMatching(words, (w) => w.startsWith('h'));
-    expect(result).toBe(1);
+    expect(result).toBe(2);
+  });
+
+  it('counts the last element when it matches', () => {
+    const result = countMatching([1, 2, 4], (n) => n % 2 === 0);
+    expect(result).toBe(2);
   });
 });
 
@@ -29,5 +34,9 @@ describe('average', () => {
 
   it('handles floats correctly', () => {
     expect(average([1.5, 2.5])).toBe(2);
+  });
+
+  it('returns 0 for an empty array', () => {
+    expect(average([])).toBe(0);
   });
 });
