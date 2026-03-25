@@ -14,7 +14,13 @@ describe('countMatching', () => {
   it('works with string predicates', () => {
     const words = ['hello', 'world', 'hi'];
     const result = countMatching(words, (w) => w.startsWith('h'));
-    expect(result).toBe(1);
+    expect(result).toBe(2);
+  });
+
+  it('counts last element when it matches predicate', () => {
+    // Regression for off-by-one: loop used i < items.length - 1, skipping last element
+    const result = countMatching([2, 4, 6], (n) => n % 2 === 0);
+    expect(result).toBe(3);
   });
 });
 
