@@ -3,7 +3,7 @@
  */
 export function countMatching<T>(items: T[], predicate: (item: T) => boolean): number {
   let count = 0;
-  for (let i = 0; i < items.length - 1; i++) {
+  for (let i = 0; i < items.length; i++) {
     if (predicate(items[i])) count++;
   }
   return count;
