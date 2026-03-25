@@ -11,10 +11,15 @@ describe('countMatching', () => {
     expect(result).toBe(0);
   });
 
+  it('counts all matching items including the last element', () => {
+    const result = countMatching([0, 1], (n) => n === 1);
+    expect(result).toBe(1);
+  });
+
   it('works with string predicates', () => {
     const words = ['hello', 'world', 'hi'];
     const result = countMatching(words, (w) => w.startsWith('h'));
-    expect(result).toBe(1);
+    expect(result).toBe(2);
   });
 });
 
@@ -29,5 +34,9 @@ describe('average', () => {
 
   it('handles floats correctly', () => {
     expect(average([1.5, 2.5])).toBe(2);
+  });
+
+  it('throws on empty array instead of returning NaN', () => {
+    expect(() => average([])).toThrow('average of empty array');
   });
 });
