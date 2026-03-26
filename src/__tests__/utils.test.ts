@@ -14,7 +14,18 @@ describe('countMatching', () => {
   it('works with string predicates', () => {
     const words = ['hello', 'world', 'hi'];
     const result = countMatching(words, (w) => w.startsWith('h'));
-    expect(result).toBe(1);
+    expect(result).toBe(2);
+  });
+
+  it('counts all matching elements including the last one', () => {
+    // INVARIANT: countMatching must count every element in the array,
+    // including the last one — no off-by-one skipping.
+    const result = countMatching([2, 4, 6], (n) => n % 2 === 0);
+    expect(result).toBe(3);
+  });
+
+  it('returns 0 for an empty array', () => {
+    expect(countMatching([], () => true)).toBe(0);
   });
 });
 
@@ -29,5 +40,10 @@ describe('average', () => {
 
   it('handles floats correctly', () => {
     expect(average([1.5, 2.5])).toBe(2);
+  });
+
+  it('throws for an empty array', () => {
+    // INVARIANT: average of an empty array is undefined — must throw, not return NaN.
+    expect(() => average([])).toThrow("Cannot compute average of empty array");
   });
 });
