@@ -1,27 +1,32 @@
 #!/usr/bin/env npx tsx
 /**
- * score-probe.ts — Mechanistic scorer for eval-probe YAML outputs.
+ * score-probe.ts — Mechanistic scorer for eval-probe JSON/YAML outputs.
  *
  * Usage:
- *   npx tsx scripts/score-probe.ts --output <file.yaml> --gt <ground-truth.yaml>
+ *   npx tsx scripts/score-probe.ts --output <file.json> --gt <ground-truth.json>
  *   npx tsx scripts/score-probe.ts --output-dir <dir/> --gt-dir <gt-dir/>
  *
- * Both files are validated against Zod schemas before scoring.
+ * Both files are Zod-validated before scoring. JSON and YAML both accepted.
  * Exits non-zero if validation fails.
  *
  * Scoring model (from kaizen #1016):
  *   Boundary sufficiency    55%  — did predicted level clear the GT minimum?
  *   Minimum-level precision 20%  — how close to the minimum (symmetric)?
  *   Plan consistency        15%  — does test_description match declared level?
- *   Required structure      10%  — all required YAML fields present (Zod-guaranteed)
+ *   Required structure      10%  — all required fields present (Zod-guaranteed)
  *
  * Row weights by GT level: Unit=1, Integration=2, System=3, Agentic=4, Workflow=4
  */
 
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";  // readFileSync used by parseFile
 import { parse as parseYaml } from "yaml";
 import { z } from "zod";
 import { ProbeOutput, GroundTruth } from "../src/eval-probe-schema.js";
+
+function parseFile(path: string): unknown {
+  const raw = readFileSync(path, "utf-8");
+  return path.endsWith(".json") ? JSON.parse(raw) : parseYaml(raw);
+}
 
 const LEVEL_INDEX: Record<string, number> = {
   Unit: 0, Integration: 1, System: 2, Agentic: 3, Workflow: 4,
@@ -73,14 +78,13 @@ interface ScoreResult {
 }
 
 function loadAndValidate<T>(path: string, schema: z.ZodType<T>): T {
-  let raw: string;
+  let parsed: unknown;
   try {
-    raw = readFileSync(path, "utf-8");
+    parsed = parseFile(path);
   } catch {
     console.error(`Cannot read file: ${path}`);
     process.exit(1);
   }
-  const parsed = parseYaml(raw);
   const result = schema.safeParse(parsed);
   if (!result.success) {
     console.error(`\n✗ Zod validation FAILED for ${path}:`);

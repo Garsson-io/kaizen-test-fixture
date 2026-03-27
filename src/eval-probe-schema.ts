@@ -73,21 +73,3 @@ export const GroundTruth = z.object({
 });
 export type GroundTruth = z.infer<typeof GroundTruth>;
 
-// ── CLI entry point for self-validation ──────────────────────────────────────
-if (process.argv[2]) {
-  const { readFileSync } = await import("node:fs");
-  const { parse } = await import("yaml");
-  const file = process.argv[2];
-  const raw = readFileSync(file, "utf-8");
-  const parsed = parse(raw);
-  const result = ProbeOutput.safeParse(parsed);
-  if (result.success) {
-    console.log(`✓ ${file} is valid (task ${result.data.task_id}, ${result.data.behaviors.length} behaviors)`);
-  } else {
-    console.error(`✗ ${file} is INVALID:`);
-    for (const issue of result.error.issues) {
-      console.error(`  [${issue.path.join(".")}] ${issue.message}`);
-    }
-    process.exit(1);
-  }
-}
