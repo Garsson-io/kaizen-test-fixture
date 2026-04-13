@@ -1,0 +1,12 @@
+{"hook":"kaizen-check-wip","timestamp":"2026-04-13T19:56:16.732Z","duration_ms":91,"exit_code":0,"branch":"main","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:56:22.211Z","duration_ms":14,"exit_code":0,"branch":"main","case_id":""}
+{"hook":"kaizen-capture-worktree-context","timestamp":"2026-04-13T19:56:22.551Z","duration_ms":7,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-enforce-worktree-writes","timestamp":"2026-04-13T19:56:24.556Z","duration_ms":8,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-enforce-case-exists","timestamp":"2026-04-13T19:56:24.568Z","duration_ms":4,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:56:26.553Z","duration_ms":33,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-capture-worktree-context","timestamp":"2026-04-13T19:56:26.846Z","duration_ms":10,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-enforce-case-worktree","timestamp":"2026-04-13T19:56:28.715Z","duration_ms":9,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:56:28.721Z","duration_ms":17,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-capture-worktree-context","timestamp":"2026-04-13T19:56:30.462Z","duration_ms":6,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:56:32.470Z","duration_ms":12,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:56:35.573Z","duration_ms":26,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}

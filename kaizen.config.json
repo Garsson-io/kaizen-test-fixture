@@ -1,0 +1,29 @@
+{
+  "host": {
+    "name": "kaizen-test-fixture",
+    "repo": "Garsson-io/kaizen-test-fixture",
+    "description": "Hook Gym test fixture"
+  },
+  "kaizen": {
+    "repo": "Garsson-io/kaizen",
+    "issueLabel": "kaizen"
+  },
+  "taxonomy": {
+    "levels": [
+      "level-1",
+      "level-2",
+      "level-3"
+    ],
+    "areas": [],
+    "areaPrefix": "area/",
+    "epicPrefix": "epic/",
+    "horizonPrefix": "horizon/"
+  },
+  "issues": {
+    "repo": "Garsson-io/kaizen-test-fixture",
+    "label": "kaizen"
+  },
+  "notifications": {
+    "channel": "none"
+  }
+}

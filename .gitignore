@@ -1,0 +1,5 @@
+# kaizen session-local state (not committed)
+.claude/review-fix/
+.claude/audit/
+.agents/kaizen/local/audit/
+.claude/worktrees/
