@@ -24,3 +24,7 @@
 {"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:56:48.692Z","duration_ms":38,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
 {"hook":"kaizen-capture-worktree-context","timestamp":"2026-04-13T19:56:48.953Z","duration_ms":7,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
 {"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:56:53.139Z","duration_ms":14,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-capture-worktree-context","timestamp":"2026-04-13T19:57:27.529Z","duration_ms":9,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:57:29.171Z","duration_ms":16,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:57:33.839Z","duration_ms":39,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
+{"hook":"kaizen-block-git-rebase","timestamp":"2026-04-13T19:57:38.412Z","duration_ms":14,"exit_code":0,"branch":"hook-gym-probe-20260413195611","case_id":""}
